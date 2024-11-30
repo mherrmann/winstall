@@ -150,15 +150,13 @@ let SingleApp = ({ app, all, onVersionChange = false, large = false, showTime = 
   }
 
   const handleInstallerType = (installerType) => {
-    const lowercaseType = installerType.toLowerCase();
-
-    switch (lowercaseType) {
+    switch (installerType) {
       case "appx":
       case "exe":
       case "msi":
       case "msix":
       case "zip":
-        return `.${lowercaseType}`
+        return `.${installerType}`
 
       case "nullsoft":
       case "inno":
@@ -286,7 +284,7 @@ let SingleApp = ({ app, all, onVersionChange = false, large = false, showTime = 
               <FiDownload />
               Download{" "}
               {app.versions[0].installerType
-                ? `(.${handleInstallerType(app.versions[0].installerType)})`
+                ? `(.${handleInstallerType(app.versions[0].installerType.toLowerCase()})`
                 : ""}
             </a>
           </li>
